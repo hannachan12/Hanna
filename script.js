@@ -20,6 +20,14 @@ setTimeout(function() {
 let gotItBtn = document.querySelector(".got-it-btn");
 let bgm = document.querySelector(".background-music");
 gotItBtn.addEventListener("click", function() {
+	const elem = document.documentElement; // bisa juga pakai element lain, misal: document.getElementById("main")
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
 	bgm.play();
 	welcomeWrapper.classList.add("hide");
 	containerIndex.classList.remove("hide");
